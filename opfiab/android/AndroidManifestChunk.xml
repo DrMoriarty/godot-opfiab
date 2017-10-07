@@ -1,0 +1,18 @@
+
+<!-- Common -->
+<activity
+    android:name="org.onepf.opfiab.android.OPFIabActivity"
+    android:configChanges="fontScale|keyboard|keyboardHidden|layoutDirection|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode"
+    android:launchMode="singleTask"
+    android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+<!-- Amazon -->
+<receiver
+    android:name="com.amazon.device.iap.ResponseReceiver"
+    android:exported="true">
+  <intent-filter>
+    <action
+        android:name="com.amazon.inapp.purchasing.NOTIFY"
+        android:permission="com.amazon.inapp.purchasing.Permission.NOTIFY"/>
+  </intent-filter>
+</receiver>
