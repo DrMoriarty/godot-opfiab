@@ -5,12 +5,3 @@
 <!--Google Play-->
 <!--uses-permission android:name="com.android.vending.BILLING" /-->
 
-<!--Amazon requires no permissions -->
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-
-<!--Samsung Apps-->
-<uses-permission android:name="com.sec.android.iap.permission.BILLING" />
-<uses-permission android:name="android.permission.GET_ACCOUNTS"/>
-
-<!--Open Store-->
-<uses-permission android:name="org.onepf.openiab.permission.BILLING" />

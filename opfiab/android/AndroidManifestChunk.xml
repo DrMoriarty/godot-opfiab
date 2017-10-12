@@ -6,13 +6,3 @@
     android:launchMode="singleTask"
     android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
 
-<!-- Amazon -->
-<receiver
-    android:name="com.amazon.device.iap.ResponseReceiver"
-    android:exported="true">
-  <intent-filter>
-    <action
-        android:name="com.amazon.inapp.purchasing.NOTIFY"
-        android:permission="com.amazon.inapp.purchasing.Permission.NOTIFY"/>
-  </intent-filter>
-</receiver>

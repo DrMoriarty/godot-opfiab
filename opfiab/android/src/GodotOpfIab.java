@@ -37,21 +37,21 @@ import org.onepf.opfiab.verification.VerificationResult;
 
 // Providers
 
-import org.onepf.opfiab.amazon.AmazonBillingProvider;
+//import org.onepf.opfiab.amazon.AmazonBillingProvider;
 
 import org.onepf.opfiab.google.GoogleBillingProvider;
 import org.onepf.opfiab.google.SimpleGooglePurchaseVerifier;
 
-import org.onepf.opfiab.openstore.ApplandBillingProvider;
-import org.onepf.opfiab.openstore.AptoideBillingProvider;
-import org.onepf.opfiab.openstore.SlideMEBillingProvider;
-import org.onepf.opfiab.openstore.YandexBillingProvider;
-import org.onepf.opfiab.openstore.OpenStoreBillingProvider;
+//import org.onepf.opfiab.openstore.ApplandBillingProvider;
+//import org.onepf.opfiab.openstore.AptoideBillingProvider;
+//import org.onepf.opfiab.openstore.SlideMEBillingProvider;
+//import org.onepf.opfiab.openstore.YandexBillingProvider;
+//import org.onepf.opfiab.openstore.OpenStoreBillingProvider;
 
-import org.onepf.opfiab.samsung.BillingMode;
-import org.onepf.opfiab.samsung.SamsungBillingProvider;
-import org.onepf.opfiab.samsung.SamsungMapSkuResolver;
-import org.onepf.opfiab.samsung.SamsungPurchaseVerifier;
+//import org.onepf.opfiab.samsung.BillingMode;
+//import org.onepf.opfiab.samsung.SamsungBillingProvider;
+//import org.onepf.opfiab.samsung.SamsungMapSkuResolver;
+//import org.onepf.opfiab.samsung.SamsungPurchaseVerifier;
 
 public class GodotOpfIab extends Godot.SingletonBase {
     //variable
@@ -163,15 +163,6 @@ public class GodotOpfIab extends Godot.SingletonBase {
                 if(set != null) {
                     for(SkuDetails details: set) {
                         detailsList.add(details);
-                        /*
-                        Dictionary item = new Dictionary();
-                        item.put("sku", details.getSku());
-                        item.put("type", details.getType().toString());
-                        if(details.getProviderName() != null) item.put("provider", details.getProviderName());
-                        if(details.getTitle() != null) item.put("title", details.getTitle());
-                        if(details.getPrice() != null) item.put("price", details.getPrice());
-                        if(details.getDescription() != null) item.put("description", details.getDescription());
-                        */
                         runCallback("details", dictionaryFromSkuDetails(details));
                     }
                 }
@@ -259,7 +250,7 @@ public class GodotOpfIab extends Godot.SingletonBase {
         }
         return skuResolver;
     }
-
+    /*
     private SamsungMapSkuResolver samsungSkuMapResolver(final String groupId, final Dictionary skuMap) {
         final SamsungMapSkuResolver skuResolver = new SamsungMapSkuResolver(groupId);
         if(skuMap == null || skuMap.get_keys().length <= 0)
@@ -285,7 +276,7 @@ public class GodotOpfIab extends Godot.SingletonBase {
         }
         return skuResolver;
     }
-
+    */
     public void googleProvider(final String storeKey, final Dictionary skuMap) {
         providers.add(new GoogleBillingProvider.Builder(activity)
                       .setPurchaseVerifier(new SimpleGooglePurchaseVerifier(storeKey))
@@ -294,50 +285,64 @@ public class GodotOpfIab extends Godot.SingletonBase {
     }
 
     public void amazonProvider(final Dictionary skuMap) {
+        /*
         providers.add(new AmazonBillingProvider.Builder(activity)
                       .setSkuResolver(skuMapResolver(skuMap))
                       .build());
+        */
     }
 
     public void samsungProvider(final String groupId, final Dictionary skuMap) {
+        /*
         providers.add(new SamsungBillingProvider.Builder(activity)
                       .setBillingMode(BillingMode.TEST_SUCCESS)
                       .setPurchaseVerifier(new SamsungPurchaseVerifier(activity, BillingMode.TEST_SUCCESS))
                       .setSkuResolver(samsungSkuMapResolver(groupId, skuMap))
                       .build());
+        */
     }
 
     public void yandexProvider(final String storeKey, final Dictionary skuMap) {
+        /*
         providers.add(new OpenStoreBillingProvider.Builder(activity)
                       .setPurchaseVerifier(new SimplePublicKeyPurchaseVerifier(storeKey))
                       .setSkuResolver(typedSkuMapResolver(skuMap))
                       .build());
+        */
     }
 
     public void aptoideProvider(final String storeKey, final Dictionary skuMap) {
+        /*
         providers.add(new AptoideBillingProvider.Builder(activity)
                       .setPurchaseVerifier(new SimplePublicKeyPurchaseVerifier(storeKey))
                       .setSkuResolver(typedSkuMapResolver(skuMap))
                       .build());
+        */
     }
 
     public void applandProvider(final Dictionary skuMap) {
+        /*
         providers.add(new ApplandBillingProvider.Builder(activity)
                       .setSkuResolver(typedSkuMapResolver(skuMap))
                       .build());
+        */
     }
 
     public void slidemeProvider(final String storeKey, final Dictionary skuMap) {
+        /*
         providers.add(new SlideMEBillingProvider.Builder(activity)
                       .setPurchaseVerifier(new SimplePublicKeyPurchaseVerifier(storeKey))
                       .setSkuResolver(typedSkuMapResolver(skuMap))
                       .build());
+        */
     }
 
     public void openStoreProvider(final Dictionary skuMap) {
+        /*
         providers.add(new OpenStoreBillingProvider.Builder(activity)
                       .setSkuResolver(typedSkuMapResolver(skuMap))
                       .build());
+        */
     }
 
     //initialization of OpfIab
