@@ -125,6 +125,8 @@ public class GodotOpfIab extends Godot.SingletonBase {
                 if (consumeResponse.isSuccessful()) {
                     String sku = consumeResponse.getPurchase().getSku();
                     runCallback("consumed", dictionaryForSku(sku));
+                } else {
+                    runCallback("consumed", null);
                 }
             }
 
@@ -136,6 +138,8 @@ public class GodotOpfIab extends Godot.SingletonBase {
                     purchases.add(purchaseResponse.getPurchase());
                     String sku = purchaseResponse.getPurchase().getSku();
                     runCallback("purchased", dictionaryForSku(sku));
+                } else {
+                    runCallback("purchased", null);
                 }
             }
 
